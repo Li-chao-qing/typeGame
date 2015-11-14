@@ -10,8 +10,9 @@ window.onload = function(){
     el = document.createElement('div');       el.setAttribute('class','key');
     el.innerHTML = String.fromCharCode(code); sence.appendChild(el);
   }
-  var top = sence.firstElementChild;
+  
   document.onkeydown = function(e){
+    var top = sence.firstElementChild;
     if( e.shiftKey ){
       if( e.keyCode !== top.innerHTML.charCodeAt(0) )      return;
     }else{
@@ -24,11 +25,11 @@ window.onload = function(){
       },1000);
       hasJiShuqi = true;
     }
-    top.style.background = '#c4a0f2';
-    top = top.nextElementSibling;
+   
     if(top == null){
       clearInterval(timerId);alert(time);
       location.reload()
     }
+    sence.removeChild(top);
   }; 
 };
